@@ -54,6 +54,18 @@
   flex-wrap: nowrap;   /* ye important hai */
   justify-content: center;
 }
+    @media (max-width: 768px) {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 0 10px;
+  }
+}
 
 nav a {
   margin: 0 8px;
