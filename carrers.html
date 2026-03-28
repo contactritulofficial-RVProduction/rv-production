@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Careers - RV Productions</title>
+
+<style>
+:root{--gold:#ddb42d;}
+
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:#000;
+  color:#fff;
+  text-align:center;
+}
+
+/* HEADER */
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 40px;
+  background:#000;
+  border-bottom:1px solid var(--gold);
+}
+
+header h1{
+  color:var(--gold);
+}
+
+.nav-btn{
+  background:var(--gold);
+  color:black;
+  padding:8px 18px;
+  border-radius:20px;
+  text-decoration:none;
+  font-weight:bold;
+  margin-left:10px;
+}
+
+header{
+  padding:15px;
+  background:#000;
+  border-bottom:1px solid var(--gold);
+}
+
+h1{
+  color:var(--gold);
+}
+
+h2 {
+  animation: fadeUp 1s ease;
+}
+
+/* FADE + SLIDE ANIMATION */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+/* delay for each card */
+.card:nth-child(1){animation-delay:0.1s}
+.card:nth-child(2){animation-delay:0.2s}
+.card:nth-child(3){animation-delay:0.3s}
+.card:nth-child(4){animation-delay:0.4s}
+.card:nth-child(5){animation-delay:0.5s}
+.card:nth-child(6){animation-delay:0.6s}
+
+/* CARDS */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  padding:40px;
+}
+
+.card{
+  padding:20px;
+  border-radius:12px;
+  background:rgba(255,255,255,.05);
+  cursor:pointer;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 15px var(--gold);
+}
+
+button {
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px gold;
+}
+
+/* FORM */
+form{
+  max-width:400px;
+  margin:40px auto;
+}
+
+input, textarea{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border:none;
+  border-radius:6px;
+}
+
+button{
+  padding:10px;
+  background:var(--gold);
+  border:none;
+  cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+  <header>
+     <div style="display:flex; align-items:center; gap:10px;">
+      <img src="C:\Users\user\Desktop\Backend\logo.jpeg" width="120">
+      <h1>RV Productions</h1>
+    </div>
+
+  
+  <div>
+    <a href="index.html" class="nav-btn">Home</a>
+    <a href="about_us.html" class="nav-btn">About us</a>
+  </div>
+</header>
+
+<h2>Select Your Role</h2>
+
+<div class="services">
+    <div class="card" onclick="selectRole('Actor')">🎭 Actor</div>
+    <div class="card" onclick="selectRole('Singer')">🎤 Singer</div>
+    <div class="card" onclick="selectRole('Content Creator')">📹 Content Creator</div>
+    <div class="card" onclick="selectRole('Video Editor')">🎞 Video Editor</div>
+    <div class="card" onclick="selectRole('Cinematographer')">📷 Cinematographer</div>
+    <div class="card" onclick="selectRole('Director')">🎬 Director</div>
+    <div class="card" onclick="selectRole('Instrumentalist')">🎸 Instrumentalist</div>
+    <div class="card" onclick="selectRole('Music Producer')">🎧 Music Producer</div>
+    <div class="card" onclick="selectRole('Lightman')">💡 Lightman</div>
+    <div class="card" onclick="selectRole('Script Writer')">✍ Script Writer</div>
+    <div class="card" onclick="selectRole('Lyricist')">📝 Lyricist</div>
+    <div class="card" onclick="selectRole('VFX Editor')">✨ VFX Editor</div>
+</div>
+
+<form action="https://formspree.io/f/mgopvwjo" method="POST">
+  <h3>Apply Now</h3>
+
+  <input type="text" id="role" placeholder="Selected Role" readonly required>
+  <input type="text" placeholder="Your Name" required>
+  <input type="email" placeholder="Your Email" required>
+  <textarea placeholder="Tell us about yourself..." required></textarea>
+  <textarea placeholder="Paste Your Social media link" required></textarea>
+
+  <button type="submit">Apply</button>
+</form>
+
+<script>
+function selectRole(role){
+  document.getElementById("role").value = role;
+}
+
+document.getElementById("careerForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  alert("Application Submitted Successfully 🎉");
+});
+</script>
+
+<script>
+document.querySelector("form").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  alert("🎬 Thank you for applying at RV Productions!\nWe will contact you soon.");
+
+  this.reset();
+});
+</script>
+
+</body>
+</html>
